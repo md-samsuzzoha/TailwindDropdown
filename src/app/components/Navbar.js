@@ -95,10 +95,11 @@ export default function Navbar() {
                             <CogIcon className="w-5 h-5 mr-2" /> Settings
                         </li>
                         <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                            <FolderIcon className="w-5 h-5 mr-2" /> FAQ's
+                            <FolderIcon className="w-5 h-5 mr-2" /> FAQ&apos;s
                         </li>
                         <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                            <NewspaperIcon className="w-5 h-5 mr-2" /> Q&A's
+                            <NewspaperIcon className="w-5 h-5 mr-2" />{" "}
+                            Q&A&apos;s
                         </li>
                         <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
                             <ShieldExclamationIcon className="w-5 h-5 mr-2" />{" "}
