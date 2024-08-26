@@ -91,20 +91,20 @@ export default function Navbar() {
                 >
                     {" "}
                     <ul className="py-2">
-                        <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                        <li className="flex items-center px-4 py-2 dark:hover:text-black hover:bg-gray-100 cursor-pointer">
                             <UserIcon className="w-5 h-5 mr-2" /> Accounts
                         </li>
-                        <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                        <li className="flex items-center px-4 py-2 dark:hover:text-black hover:bg-gray-100 cursor-pointer">
                             <CogIcon className="w-5 h-5 mr-2" /> Settings
                         </li>
-                        <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                        <li className="flex items-center px-4 py-2 dark:hover:text-black hover:bg-gray-100 cursor-pointer">
                             <FolderIcon className="w-5 h-5 mr-2" /> FAQ&apos;s
                         </li>
-                        <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                        <li className="flex items-center px-4 py-2 dark:hover:text-black hover:bg-gray-100 cursor-pointer">
                             <NewspaperIcon className="w-5 h-5 mr-2" />{" "}
                             Q&A&apos;s
                         </li>
-                        <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                        <li className="flex items-center px-4 py-2 dark:hover:text-black hover:bg-gray-100 cursor-pointer">
                             <ShieldExclamationIcon className="w-5 h-5 mr-2" />{" "}
                             Help/Support
                         </li>
@@ -138,9 +138,9 @@ export default function Navbar() {
                             </div>
                             <div className="flex flex-col items-start mt-4">
                                 <div
-                                    className={`dark:bg-gray-800 dark:border dark:border-gray-600 flex items-center space-x-4 rounded-md px-4 py-2 mb-2 ${
+                                    className={`dark:bg-gray-800 dark:border-gray-600 border-white w-full flex items-center space-x-4 rounded-md px-4 py-2 mb-2 ${
                                         selectedUser === 1
-                                            ? "drop-shadow-lg bg-white"
+                                            ? "drop-shadow-lg bg-white dark:border"
                                             : ""
                                     } cursor-pointer`}
                                     onClick={() => handleUserSelect(1)}
@@ -157,7 +157,7 @@ export default function Navbar() {
                                         <span className="font-extrabold text-xl text-black dark:text-white">
                                             Sky Jones
                                         </span>
-                                        <span className="text-[#0f0f0f] text-sm">
+                                        <span className="text-[#6a717e] text-sm">
                                             skyjones@gmail.com
                                         </span>
                                     </div>
@@ -166,9 +166,9 @@ export default function Navbar() {
                                     )}{" "}
                                 </div>
                                 <div
-                                    className={`flex items-center space-x-4 px-4 py-2 mb-2 rounded-md ${
+                                    className={`dark:bg-gray-800 dark:border-gray-600 border-white w-full flex items-center space-x-4 px-4 py-2 mb-2 rounded-md ${
                                         selectedUser === 2
-                                            ? "drop-shadow-lg bg-white"
+                                            ? "drop-shadow-lg bg-white dark:border"
                                             : ""
                                     } cursor-pointer`}
                                     onClick={() => handleUserSelect(2)}
@@ -180,7 +180,7 @@ export default function Navbar() {
                                     />
                                     <div className="flex flex-col items-start">
                                         <span className="font-medium text-lg text-black dark:text-white">
-                                            Advertiser
+                                            Recruiter
                                         </span>
                                         <span className="font-extrabold text-xl text-black dark:text-white">
                                             Sky Jones
