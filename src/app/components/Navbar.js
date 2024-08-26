@@ -13,12 +13,29 @@ import {
     UserIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [theme, setTheme] = useState("light");
     const [selectedUser, setSelectedUser] = useState(1);
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+        const handleOutsideClick = (event) => {
+            if (!dropdownRef.current?.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+
+        if (isOpen) {
+            window.addEventListener("mousedown", handleOutsideClick);
+        }
+
+        return () => {
+            window.removeEventListener("mousedown", handleOutsideClick);
+        };
+    }, [isOpen]);
 
     const toggleDropdown = (e) => {
         e.stopPropagation();
@@ -64,6 +81,7 @@ export default function Navbar() {
 
             {isOpen && (
                 <div
+                    ref={dropdownRef}
                     className={`absolute right-6 top-20 mt-1 bg-white rounded-md shadow-sm w-58 transition-all duration-300 ease-in-out ${
                         isOpen ? "dropdown-open" : "dropdown"
                     }`}
@@ -77,10 +95,11 @@ export default function Navbar() {
                             <CogIcon className="w-5 h-5 mr-2" /> Settings
                         </li>
                         <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                            <FolderIcon className="w-5 h-5 mr-2" /> FAQ's
+                            <FolderIcon className="w-5 h-5 mr-2" /> FAQ&apos;s
                         </li>
                         <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                            <NewspaperIcon className="w-5 h-5 mr-2" /> Q&A's
+                            <NewspaperIcon className="w-5 h-5 mr-2" />{" "}
+                            Q&A&apos;s
                         </li>
                         <li className="flex items-center px-4 py-2 hover:bg-gray-100 cursor-pointer">
                             <ShieldExclamationIcon className="w-5 h-5 mr-2" />{" "}
