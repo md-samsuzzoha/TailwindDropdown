@@ -85,7 +85,7 @@ export default function Navbar() {
             {isOpen && (
                 <div
                     ref={dropdownRef}
-                    className={`dark:bg-gray-800 dark:border dark:border-gray-600 border absolute right-6 top-20 mt-1 bg-white rounded-md drop-shadow-lg w-58 transition-all duration-300 ease-in-out ${
+                    className={`dark:bg-gray-800 dark:border-gray-600 border absolute right-6 top-20 mt-1 bg-white rounded-md drop-shadow-lg w-58 transition-all duration-300 ease-in-out ${
                         isOpen ? "dropdown-open" : "dropdown"
                     }`}
                 >
@@ -195,7 +195,7 @@ export default function Navbar() {
                                 </div>
                             </div>
                             <button
-                                className={`flex items-center justify-center w-full px-4 py-2 mt-4 bg-white text-black rounded-md drop-shadow-lg hover:font-bold ${
+                                className={`dark:bg-gray-800 dark:border-gray-600 border border-white flex items-center justify-center w-full px-4 py-2 mt-4 bg-white text-black rounded-md drop-shadow-lg hover:font-bold ${
                                     theme === "dark"
                                         ? "border bg-gray-800 border-gray-600 text-white"
                                         : ""
