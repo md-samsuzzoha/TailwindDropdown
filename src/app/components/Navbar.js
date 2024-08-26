@@ -13,12 +13,13 @@ import {
     UserIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid";
+import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
-    const [theme, setTheme] = useState("light");
     const [selectedUser, setSelectedUser] = useState(1);
+    const { theme, setTheme } = useTheme();
     const dropdownRef = useRef(null);
 
     useEffect(() => {
@@ -52,15 +53,17 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="bg-[#dee8f1] py-4 px-6 flex justify-end items-center relative font-inter text-[#000]">
-            <div className="relative flex items-center space-x-4 bg-[#fafbfc] p-2 rounded-md shadow-md">
+        <nav className="dark:bg-gray-800 dark:border-b-2 dark:border-b-slate-500 bg-[#dee8f1] dark:text-white py-4 px-6 flex justify-end items-center relative font-inter text-[#000]">
+            <div className="dark:bg-gray-800 dark:border-gray-600 border relative flex items-center space-x-4 bg-[#fafbfc] p-2 rounded-md shadow-md">
                 <img
                     src="/images/user.jpg"
                     alt="User"
                     className="w-12 h-12 rounded-full"
                 />
                 <div className="flex flex-col items-start pr-4">
-                    <span className="font-medium text-[#000]">Stacy Jones</span>
+                    <span className="font-medium text-[#000] dark:text-white">
+                        Stacy Jones
+                    </span>
                     <span className="text-[#6a717e] pointer-events-none select-none">
                         Micro
                     </span>
@@ -69,12 +72,12 @@ export default function Navbar() {
                     <ChevronUpIcon
                         onClick={toggleDropdown}
                         aria-expanded={isOpen}
-                        className="w-8 h-8 cursor-pointer text-[#000] font-bold user-select-none" // Up arrow when dropdown is open
+                        className="dark:text-white w-8 h-8 cursor-pointer text-[#000] font-bold user-select-none" // Up arrow when dropdown is open
                     />
                 ) : (
                     <ChevronDownIcon
                         onClick={toggleDropdown}
-                        className="w-8 h-8 cursor-pointer text-[#000] font-bold user-select-none" // Down arrow when dropdown is closed
+                        className="dark:text-white w-8 h-8 cursor-pointer text-[#000] font-bold user-select-none" // Down arrow when dropdown is closed
                     />
                 )}
             </div>
@@ -82,7 +85,7 @@ export default function Navbar() {
             {isOpen && (
                 <div
                     ref={dropdownRef}
-                    className={`absolute right-6 top-20 mt-1 bg-white rounded-md shadow-sm w-58 transition-all duration-300 ease-in-out ${
+                    className={`dark:bg-gray-800 dark:border dark:border-gray-600 border absolute right-6 top-20 mt-1 bg-white rounded-md drop-shadow-lg w-58 transition-all duration-300 ease-in-out ${
                         isOpen ? "dropdown-open" : "dropdown"
                     }`}
                 >
@@ -120,7 +123,7 @@ export default function Navbar() {
                             <button
                                 className={`flex items-center justify-center w-[128px] px-4 py-2 rounded-md ${
                                     theme === "dark"
-                                        ? "bg-white drop-shadow-lg"
+                                        ? "drop-shadow-lg border dark:bg-gray-800 dark:border-gray-600"
                                         : ""
                                 }`}
                                 onClick={() => handleThemeChange("dark")}
@@ -130,12 +133,12 @@ export default function Navbar() {
                             </button>
                         </li>
                         <div className="px-4 py-2 text-gray-600">
-                            <div className="text-[#404040]">
+                            <div className="text-[#404040] dark:text-white">
                                 SWITCH ACCOUNTS
                             </div>
                             <div className="flex flex-col items-start mt-4">
                                 <div
-                                    className={`flex items-center space-x-4 rounded-md px-4 py-2 mb-2 ${
+                                    className={`dark:bg-gray-800 dark:border dark:border-gray-600 flex items-center space-x-4 rounded-md px-4 py-2 mb-2 ${
                                         selectedUser === 1
                                             ? "drop-shadow-lg bg-white"
                                             : ""
@@ -148,10 +151,10 @@ export default function Navbar() {
                                         className="w-12 h-12 rounded-full"
                                     />
                                     <div className="flex flex-col items-start">
-                                        <span className="font-medium text-lg text-black">
+                                        <span className="font-medium text-lg text-black dark:text-white">
                                             Advertiser
                                         </span>
-                                        <span className="font-extrabold text-xl text-black">
+                                        <span className="font-extrabold text-xl text-black dark:text-white">
                                             Sky Jones
                                         </span>
                                         <span className="text-[#0f0f0f] text-sm">
@@ -176,10 +179,10 @@ export default function Navbar() {
                                         className="w-12 h-12 rounded-full"
                                     />
                                     <div className="flex flex-col items-start">
-                                        <span className="font-medium text-lg text-black">
+                                        <span className="font-medium text-lg text-black dark:text-white">
                                             Advertiser
                                         </span>
-                                        <span className="font-extrabold text-xl text-black">
+                                        <span className="font-extrabold text-xl text-black dark:text-white">
                                             Sky Jones
                                         </span>
                                         <span className="text-[#6a717e] text-sm">
@@ -191,7 +194,13 @@ export default function Navbar() {
                                     )}
                                 </div>
                             </div>
-                            <button className="flex items-center justify-center w-full px-4 py-2 mt-4 bg-white text-black rounded-md drop-shadow-lg hover:font-bold">
+                            <button
+                                className={`flex items-center justify-center w-full px-4 py-2 mt-4 bg-white text-black rounded-md drop-shadow-lg hover:font-bold ${
+                                    theme === "dark"
+                                        ? "border bg-gray-800 border-gray-600 text-white"
+                                        : ""
+                                }`}
+                            >
                                 <ArrowLeftOnRectangleIcon className="w-5 h-5 mr-2" />
                                 Sign out
                             </button>
