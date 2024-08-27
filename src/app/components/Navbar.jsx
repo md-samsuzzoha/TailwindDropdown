@@ -6,20 +6,19 @@ import {
     CheckCircleIcon,
     CogIcon,
     FolderIcon,
-    MoonIcon,
     NewspaperIcon,
     ShieldExclamationIcon,
-    SunIcon,
     UserIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid";
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
+import ThemeSwitch from "./ThemeSwitch";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedUser, setSelectedUser] = useState(1);
-    const { theme, setTheme } = useTheme();
+    const { theme } = useTheme();
     const dropdownRef = useRef(null);
 
     useEffect(() => {
@@ -42,10 +41,6 @@ export default function Navbar() {
         e.stopPropagation();
         e.preventDefault();
         setIsOpen(!isOpen);
-    };
-
-    const handleThemeChange = (selectedTheme) => {
-        setTheme(selectedTheme);
     };
 
     const handleUserSelect = (user) => {
@@ -109,28 +104,7 @@ export default function Navbar() {
                             Help/Support
                         </li>
                         <li className="flex items-center justify-around px-4 py-2 cursor-pointer space-x-4">
-                            <button
-                                className={`flex items-center justify-center w-[128px] px-4 py-2 rounded-md ${
-                                    theme === "light"
-                                        ? "bg-white border-white drop-shadow-lg"
-                                        : ""
-                                }`}
-                                onClick={() => handleThemeChange("light")}
-                            >
-                                <SunIcon className="w-5 h-5 mr-2" />
-                                Light
-                            </button>
-                            <button
-                                className={`flex items-center justify-center w-[128px] px-4 py-2 rounded-md ${
-                                    theme === "dark"
-                                        ? "drop-shadow-lg border dark:bg-gray-800 dark:border-gray-600"
-                                        : ""
-                                }`}
-                                onClick={() => handleThemeChange("dark")}
-                            >
-                                <MoonIcon className="w-5 h-5 mr-2" />
-                                Dark
-                            </button>
+                            <ThemeSwitch />
                         </li>
                         <div className="px-4 py-2 text-gray-600">
                             <div className="text-[#404040] dark:text-white">

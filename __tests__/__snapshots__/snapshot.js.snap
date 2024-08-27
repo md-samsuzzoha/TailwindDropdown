@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders homepage unchanged 1`] = `
+<div>
+  <h1>
+    Home
+  </h1>
+  <nav
+    class="dark:bg-gray-800 dark:border-b-2 dark:border-b-slate-500 bg-[#dee8f1] dark:text-white py-4 px-6 flex justify-end items-center relative font-inter text-[#000]"
+  >
+    <div
+      class="dark:bg-gray-800 dark:border-gray-600 border relative flex items-center space-x-4 bg-[#fafbfc] p-2 rounded-md shadow-md"
+    >
+      <img
+        alt="User"
+        class="w-12 h-12 rounded-full"
+        src="/images/user.jpg"
+      />
+      <div
+        class="flex flex-col items-start pr-4"
+      >
+        <span
+          class="font-medium text-[#000] dark:text-white"
+        >
+          Stacy Jones
+        </span>
+        <span
+          class="text-[#6a717e] pointer-events-none select-none"
+        >
+          Micro
+        </span>
+      </div>
+      <svg
+        aria-hidden="true"
+        class="dark:text-white w-8 h-8 cursor-pointer text-[#000] font-bold user-select-none"
+        data-slot="icon"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+  </nav>
+</div>
+`;
